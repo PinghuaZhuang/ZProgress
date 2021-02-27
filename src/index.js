@@ -53,6 +53,11 @@ const settings = {
      */
     // waitMax: .994,
     waitMax: 98,
+    /**
+     * change事件
+     * @type { Function<number> }
+     */
+    onChage: undefined,
 }
 
 /**
@@ -62,7 +67,7 @@ export default class ZProgress {
     static version = VERSION
 
     // 配置项
-    static props = ['trickle', 'trickleSpeed', 'waitMax']
+    static props = ['trickle', 'trickleSpeed', 'waitMax', 'onChange']
 
     /**
      * 进度条进度
@@ -112,6 +117,8 @@ export default class ZProgress {
             // 结束后修改进度值, 状态改为 wait
             this[_status] = STATUS_WAIT
         }
+        // 触发onChange事件
+        this.options.onChange && this.options.onChange(calcValue)
         return this
     }
 
