@@ -83,7 +83,7 @@ requirejs(['node_modules/zprogress/dist/index.aio.js'], function (ZProgress) {
 
 
 
-### Settings
+## Settings
 
 ```js
 const optons = {
@@ -120,4 +120,3 @@ const optons = {
     onChage: undefined,
 }
 ```
-
