@@ -2,7 +2,7 @@
 [![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zphua2016@gmail.com/zprogress/blob/master/LICENSE)
 [![Build Status](https://api.travis-ci.org/PinghuaZhuang/ZProgress.svg?branch=master)](https://travis-ci.org/zphua2016@gmail.com/zprogress)
-[![npm](https://img.shields.io/badge/npm-0.1.0-orange.svg)](https://www.npmjs.com/package/zprogress)
+[![npm](https://img.shields.io/badge/npm-1.0.2-orange.svg)](https://www.npmjs.com/package/zprogress)
 
 
 ## :pill: 兼容性
