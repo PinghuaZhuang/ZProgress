@@ -1,0 +1,11 @@
+{
+    "name": "zprogress",
+    "npmname": "zprogress",
+    "umdname": "zprogress.umd",
+    "username": "zphua2016@gmail.com",
+    "type": "ts",
+    "module": "umd,esm,commonjs",
+    "test": null,
+    "lang": "zh",
+    "version": "1.6.0"
+}
