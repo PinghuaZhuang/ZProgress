@@ -33,7 +33,7 @@ const settings = {
      */
     trickle: true,
     /**
-     * 步进频率
+     * 步进频率, 延迟值
      * @type { Number }
      */
     trickleSpeed: 200,

@@ -14,8 +14,15 @@
 
 **注意：编译代码依赖ES5环境，对于ie6-8需要引入[es5-shim](http://github.com/es-shims/es5-shim/)才可以兼容，可以查看[demo/demo-global.html](./demo/demo-global.html)中的例子**
 
-## :open_file_folder: Demo
-倒开 demo/demo-global.html
+
+
+## :open_file_folder: Example
+
+打开 Example/demo-global.html
+
+![demo](./example/demo.gif)
+
+
 
 ## :rocket: 使用者指南
 
@@ -28,20 +35,25 @@ $ npm install --save zprogress
 如果你是node环境
 
 ```js
-var base = require('zprogress');
+var ZProgress = require('zprogress');
+var progress = new ZProgress(/* Settings */)
+progress.start()
 ```
 
 如果你是webpack等环境
 
 ```js
-import base from 'zprogress';
+import ZProgress from 'zprogress';
+const progress = new ZProgress(/* Settings */)
+progress.start()
 ```
 
 如果你是requirejs环境
 
 ```js
-requirejs(['node_modules/zprogress/dist/index.aio.js'], function (base) {
-    // xxx
+requirejs(['node_modules/zprogress/dist/index.aio.js'], function (ZProgress) {
+    var progress = new ZProgress(/* Settings */)
+    progress.start()
 })
 ```
 
@@ -51,20 +63,61 @@ requirejs(['node_modules/zprogress/dist/index.aio.js'], function (base) {
 <script src="node_modules/zprogress/dist/index.aio.js"></script>
 ```
 
-## 方法
-### set
-### start
-### stop
-### done
-### reset
-### inc
-### trickle
-### isStarted
-### isPause
-### isDone
 
-## 静态方法
-### clamp
 
-## 属性
-### value
+## Mehods
+
+|                 | 描述           | 参数           |
+| --------------- | -------------- | -------------- |
+| set             | 设置值         |                |
+| start           | 开始           |                |
+| done            | 结束           |                |
+| pause           | 暂停           |                |
+| stop            | 暂停并重置     |                |
+| reset           | 重置           |                |
+| inc/trickle     | 步进           | (val?: number) |
+| isStarted       | 是否开始       |                |
+| isPause         | 是否暂停       |                |
+| isDone          | 是否结束了     |                |
+| ZProgress.clamp | 返回在区间的值 | (val?: number) |
+
+
+
+### Settings
+
+```js
+const optons = {
+    /**
+     * 开始后是否步进
+     * @type { Boolean }
+     */
+    trickle: true,
+    /**
+     * 步进频率, 延迟值
+     * @type { Number }
+     */
+    trickleSpeed: 200,
+    /**
+     * 最小值
+     * @type { Number }
+     */
+    min: 0,
+    /**
+     * 最大值
+     * @type { Number }
+     */
+    max: 100,
+    /**
+     * 即将完成的最大值
+     * @type { Number }
+     */
+    // waitMax: .994,
+    waitMax: 98,
+    /**
+     * change事件
+     * @type { Function<number> }
+     */
+    onChage: undefined,
+}
+```
+
