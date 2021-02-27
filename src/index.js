@@ -4,57 +4,53 @@
  *  1. done 之后不能执行start无效, 必须reset, 这样比较合理.
  */
 
-const VERSION = '1.3.2'
+const VERSION = `1.3.2`
 
 /**
  * 不处于自动步进和自动步进结束的状态
  */
-const STATUS_WAIT = 'wait'
+const STATUS_WAIT = `wait`
 /**
  * 自定步进中的状态
  */
-const STATUS_STARTED = 'started'
+const STATUS_STARTED = `started`
 /**
  * 自动步进结束的状态
  */
-const STATUS_DONE = 'done'
+const STATUS_DONE = `done`
 
 // 定义是有属性
-const _status = Symbol('_status')
-const _pause = Symbol('_pause')
-
-interface Settings {
-    /**
-     * 开始后是否步进
-     */
-    trickle?: boolean,
-    /**
-     * 步进频率
-     */
-    trickleSpeed?: number,
-    /**
-     * 最小值
-     */
-    min?: number,
-    /**
-     * 最大值
-     */
-    max?: number,
-    /**
-     * 即将完成的最大值
-     */
-    // waitMax: .994,
-    waitMax?: number,
-}
+const _status = Symbol(`_status`)
+const _pause = Symbol(`_pause`)
 
 /**
  * 默认配置信息
  */
-const settings: Settings = {
+const settings = {
+    /**
+     * 开始后是否步进
+     * @type { Boolean }
+     */
     trickle: true,
+    /**
+     * 步进频率
+     * @type { Number }
+     */
     trickleSpeed: 200,
+    /**
+     * 最小值
+     * @type { Number }
+     */
     min: 0,
+    /**
+     * 最大值
+     * @type { Number }
+     */
     max: 100,
+    /**
+     * 即将完成的最大值
+     * @type { Number }
+     */
     // waitMax: .994,
     waitMax: 98,
 }
@@ -72,18 +68,13 @@ export default class ZProgress {
      * 进度条进度
      * @type { Number } MIN-MAX 区间内的数字
      */
-    $_value: number = settings.min
-
-    /**
-     * 初始化参数
-     */
-    options: Settings
+    $_value = settings.min
 
     /**
      * @param { Object } options { stopOnFalse, trickle, trickleSpeed, waitMax }
      * @constructor
      */
-    constructor(options: Settings = {}) {
+    constructor(options = {}) {
 
         /**
          * 进度条状态
@@ -113,7 +104,7 @@ export default class ZProgress {
      * 指定滚动条位置位置
      * @param { Number } value 指定数值
      */
-    set(value: number) {
+    set(value) {
         const calcValue = ZProgress.clamp(value)
         if ((this.$_value = calcValue) >= 100) {
             this[_status] = STATUS_DONE
@@ -194,7 +185,7 @@ export default class ZProgress {
      * 步进
      * @param { Number } amount 步进距离
      */
-    inc(amount?: number) {
+    inc(amount) {
         const n = this.value
         if (this.value >= 100) return this
         if (!isNumber(amount)) {
@@ -216,15 +207,17 @@ export default class ZProgress {
 
     /**
      * 是否开始
+     * @return { Boolean }
      */
-    isStarted(): boolean {
+    isStarted() {
         return this[_status] === STATUS_STARTED
     }
 
     /**
      * 是否暂停
+     * @return { Boolean }
      */
-    isPause(): boolean {
+    isPause() {
         return !!this[_pause]
     }
 
@@ -233,21 +226,21 @@ export default class ZProgress {
      * @description 在停止状态下返回, 不执行.
      * @return { Boolean }
      */
-    isDone(): boolean {
+    isDone() {
         return this[_status] === STATUS_DONE
     }
 
     /**
      * 获取进度条进度
      */
-    get value(): number {
+    get value() {
         return this.$_value
     }
     /**
      * 双向绑定设置进度条
      * @param { Number } value 设置进度条位置
      */
-    set value(value: number) {
+    set value(value) {
         this.set(value)
     }
 
@@ -258,7 +251,7 @@ export default class ZProgress {
      * @param { Number } max 最大值
      * @return { Number }
      */
-    static clamp(n: number, min: number = settings.min, max: number = settings.max): number {
+    static clamp(n, min = settings.min, max = settings.max) {
         if (n < min) return min
         if (n > max) return max
         return n
@@ -271,7 +264,7 @@ export default class ZProgress {
  * @param { Any } fn 目标对象
  * @return { Boolean }
  */
-function isFunction(fn: any): boolean {
+function isFunction(fn) {
     return typeof fn === 'function'
 }
 
@@ -279,7 +272,7 @@ function isFunction(fn: any): boolean {
  * 判断目标对象是否为数字
  * @param { Any } target 判断的目标对象
  */
-function isNumber(target: any): boolean {
+function isNumber(target) {
     return typeof target === 'number'
 }
 
@@ -288,7 +281,7 @@ function isNumber(target: any): boolean {
  * @param { String } prop 属性名
  * @param { Object } options 配置
  */
-function getProp(prop: string, options: Settings): any {
+function getProp(prop, options) {
     return (prop in options) ? options[prop] : settings[prop]
 }
 
@@ -298,7 +291,7 @@ function getProp(prop: string, options: Settings): any {
  * @param { String } prop 属性名
  * @param { Any } valule 目标对象属性值
  */
-function setPropNoEnumerable(target: Object, prop: string, value: any) {
+function setPropNoEnumerable(target, prop, value) {
     Object.defineProperty(target, prop, {
         value,
         enumerable: false,

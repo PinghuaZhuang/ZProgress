@@ -22,4 +22,3 @@ lerna-debug.log*
 *.sln
 *.sw?
 *.bak
-.rpt2_cache
