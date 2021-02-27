@@ -1,5 +1,5 @@
 /*!
- * zprogress 1.0.1 (https://github.com/zphua2016@gmail.com/zprogress)
+ * zprogress 1.0.2 (https://github.com/zphua2016@gmail.com/zprogress)
  * API https://github.com/zphua2016@gmail.com/zprogress/blob/master/doc/api.md
  * Copyright 2017-2021 zphua2016@gmail.com. All Rights Reserved
  * Licensed under MIT (https://github.com/zphua2016@gmail.com/zprogress/blob/master/LICENSE)
@@ -86,7 +86,7 @@
     trickle: true,
 
     /**
-     * 步进频率
+     * 步进频率, 延迟值
      * @type { Number }
      */
     trickleSpeed: 200,
