@@ -1,6 +1,6 @@
 {
   "name": "zprogress",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "jslib最好用的js库脚手架",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",

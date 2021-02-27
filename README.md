@@ -14,18 +14,8 @@
 
 **注意：编译代码依赖ES5环境，对于ie6-8需要引入[es5-shim](http://github.com/es-shims/es5-shim/)才可以兼容，可以查看[demo/demo-global.html](./demo/demo-global.html)中的例子**
 
-## :open_file_folder: 目录介绍
-
-```
-.
-├── demo 使用demo
-├── dist 编译产出代码
-├── doc 项目文档
-├── src 源代码目录
-├── test 单元测试
-├── CHANGELOG.md 变更日志
-└── TODO.md 计划功能
-```
+## :open_file_folder: Demo
+倒开 demo/demo-global.html
 
 ## :rocket: 使用者指南
 
