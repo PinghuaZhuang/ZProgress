@@ -265,16 +265,6 @@ export default class ZProgress {
     }
 }
 
-
-/**
- * 判断目标对象是否为函数
- * @param { Any } fn 目标对象
- * @return { Boolean }
- */
-function isFunction(fn) {
-    return typeof fn === 'function'
-}
-
 /**
  * 判断目标对象是否为数字
  * @param { Any } target 判断的目标对象
