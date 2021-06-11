@@ -1,6 +1,6 @@
 {
   "name": "zprogress",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "虚拟进度条",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
@@ -22,10 +22,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zphua2016@gmail.com/zprogress.git"
+    "url": "git@github.com:PinghuaZhuang/ZProgress.git"
   },
   "bugs": {
-    "url": "https://github.com/zphua2016@gmail.com/zprogress/issues"
+    "url": "https://github.com/PinghuaZhuang/ZProgress/issues"
   },
   "files": [
     "/dist",
