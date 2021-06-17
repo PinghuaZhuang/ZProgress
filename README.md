@@ -2,7 +2,7 @@
 [![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zphua2016@gmail.com/zprogress/blob/master/LICENSE)
 [![Build Status](https://api.travis-ci.org/PinghuaZhuang/ZProgress.svg?branch=master)](https://travis-ci.org/zphua2016@gmail.com/zprogress)
-[![npm](https://img.shields.io/badge/npm-1.0.2-orange.svg)](https://www.npmjs.com/package/zprogress)
+[![npm](https://img.shields.io/badge/npm-1.0.5-orange.svg)](https://www.npmjs.com/package/zprogress)
 
 虚拟进度条.
 
@@ -37,7 +37,12 @@ $ npm install --save zprogress
 
 ```js
 var ZProgress = require('zprogress');
-var progress = new ZProgress(/* Settings */)
+var progress = new ZProgress({
+    /* Settings */
+    onChange(step) {
+        console.log('step:', step)
+    },
+})
 progress.start()
 ```
 
@@ -45,7 +50,12 @@ progress.start()
 
 ```js
 import ZProgress from 'zprogress';
-const progress = new ZProgress(/* Settings */)
+const progress = new ZProgress({
+    /* Settings */
+    onChange(step) {
+        console.log('step:', step)
+    },
+})
 progress.start()
 ```
 
@@ -53,7 +63,12 @@ progress.start()
 
 ```js
 requirejs(['node_modules/zprogress/dist/index.aio.js'], function (ZProgress) {
-    var progress = new ZProgress(/* Settings */)
+    var progress = new ZProgress({
+        /* Settings */
+        onChange(step) {
+            console.log('step:', step)
+        },
+    })
     progress.start()
 })
 ```

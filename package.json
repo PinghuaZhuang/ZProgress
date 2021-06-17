@@ -1,6 +1,6 @@
 {
   "name": "zprogress",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "虚拟进度条",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
