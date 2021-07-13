@@ -1,6 +1,6 @@
 {
   "name": "zprogress",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "虚拟进度条",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
@@ -8,9 +8,9 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rimraf ./dist",
-    "test": "echo Error: missing tests",
+    "test": "npm run lint",
     "release": "npm test && npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags",
-    "lint": "eslint -c .eslintrc.js 'src/**/*.js'",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:fix": "eslint --fix -c .eslintrc.js 'src/**/*.js' --fix",
     "build:self": "rollup -c config/rollup.config.js",
     "build:esm": "rollup -c config/rollup.config.esm.js",
@@ -22,10 +22,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zphua2016@gmail.com/zprogress.git"
+    "url": "git@github.com:PinghuaZhuang/ZProgress.git"
   },
   "bugs": {
-    "url": "https://github.com/zphua2016@gmail.com/zprogress/issues"
+    "url": "https://github.com/PinghuaZhuang/ZProgress/issues"
   },
   "files": [
     "/dist",
@@ -37,13 +37,15 @@
   "devDependencies": {
     "@babel/cli": "7.1.5",
     "@babel/core": "^7.1.2",
+    "@babel/eslint-parser": "^7.13.10",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@js-lib/cli": "^1.6.0",
     "cross-env": "5.2.0",
     "es5-shim": "4.5.10",
-    "eslint": "^5.15.1",
+    "eslint": "^7.1.0",
+    "eslint-formatter-pretty": "^4.0.0",
     "rimraf": "2.6.2",
     "rollup": "0.57.1",
     "rollup-plugin-babel": "^4.0.3",

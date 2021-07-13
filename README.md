@@ -2,8 +2,9 @@
 [![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zphua2016@gmail.com/zprogress/blob/master/LICENSE)
 [![Build Status](https://api.travis-ci.org/PinghuaZhuang/ZProgress.svg?branch=master)](https://travis-ci.org/zphua2016@gmail.com/zprogress)
-[![npm](https://img.shields.io/badge/npm-1.0.2-orange.svg)](https://www.npmjs.com/package/zprogress)
+[![npm](https://img.shields.io/npm/v/zprogress)](https://www.npmjs.com/package/zprogress)
 
+虚拟进度条.
 
 ## :pill: 兼容性
 单元测试保证支持如下环境：
@@ -12,7 +13,7 @@
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----- |
 | 6+   | 29+ | 55+  | 9+   | 50+  | 9+   | 4+   | 4+ |
 
-**注意：编译代码依赖ES5环境，对于ie6-8需要引入[es5-shim](http://github.com/es-shims/es5-shim/)才可以兼容，可以查看[demo/demo-global.html](./demo/demo-global.html)中的例子**
+**注意：编译代码依赖ES5环境，对于ie6-8需要引入[es5-shim](http://github.com/es-shims/es5-shim/)才可以兼容，可以查看[example/demo-global.html](./example/demo-global.html)中的例子**
 
 
 
@@ -36,7 +37,12 @@ $ npm install --save zprogress
 
 ```js
 var ZProgress = require('zprogress');
-var progress = new ZProgress(/* Settings */)
+var progress = new ZProgress({
+    /* Settings */
+    onChange(step) {
+        console.log('step:', step)
+    },
+})
 progress.start()
 ```
 
@@ -44,7 +50,12 @@ progress.start()
 
 ```js
 import ZProgress from 'zprogress';
-const progress = new ZProgress(/* Settings */)
+const progress = new ZProgress({
+    /* Settings */
+    onChange(step) {
+        console.log('step:', step)
+    },
+})
 progress.start()
 ```
 
@@ -52,7 +63,12 @@ progress.start()
 
 ```js
 requirejs(['node_modules/zprogress/dist/index.aio.js'], function (ZProgress) {
-    var progress = new ZProgress(/* Settings */)
+    var progress = new ZProgress({
+        /* Settings */
+        onChange(step) {
+            console.log('step:', step)
+        },
+    })
     progress.start()
 })
 ```
@@ -86,14 +102,14 @@ requirejs(['node_modules/zprogress/dist/index.aio.js'], function (ZProgress) {
 ## Settings
 
 ```js
-const optons = {
+const settings = {
     /**
      * 开始后是否步进
      * @type { Boolean }
      */
     trickle: true,
     /**
-     * 步进频率, 延迟值
+     * 步进频率, 定时器延迟值
      * @type { Number }
      */
     trickleSpeed: 200,

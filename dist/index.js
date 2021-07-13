@@ -1,5 +1,5 @@
 /*!
- * zprogress 1.0.2 (https://github.com/zphua2016@gmail.com/zprogress)
+ * zprogress 1.0.5 (https://github.com/zphua2016@gmail.com/zprogress)
  * API https://github.com/zphua2016@gmail.com/zprogress/blob/master/doc/api.md
  * Copyright 2017-2021 zphua2016@gmail.com. All Rights Reserved
  * Licensed under MIT (https://github.com/zphua2016@gmail.com/zprogress/blob/master/LICENSE)
@@ -199,7 +199,7 @@ var ZProgress = /*#__PURE__*/function () {
       }
 
       var work = function work() {
-        window.setTimeout(function () {
+        setTimeout(function () {
           if (!this.isStarted()) return;
           if (!this[_pause]) this.trickle(); // 是否暂停
 
@@ -366,20 +366,14 @@ var ZProgress = /*#__PURE__*/function () {
   return ZProgress;
 }();
 /**
- * 判断目标对象是否为函数
- * @param { Any } fn 目标对象
- * @return { Boolean }
+ * 判断目标对象是否为数字
+ * @param { Any } target 判断的目标对象
  */
 
 
 _defineProperty(ZProgress, "version", VERSION);
 
 _defineProperty(ZProgress, "props", ['trickle', 'trickleSpeed', 'waitMax', 'onChange']);
-/**
- * 判断目标对象是否为数字
- * @param { Any } target 判断的目标对象
- */
-
 
 function isNumber(target) {
   return typeof target === 'number';

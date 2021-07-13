@@ -1,4 +1,5 @@
 module.exports = {
+    "parser": "@babel/eslint-parser",
     "env": {
         "browser": true,
         "es6": true,
@@ -21,11 +22,12 @@ module.exports = {
         ],
         "quotes": [
             "error",
-            "single"
+            "single",
+            { "allowTemplateLiterals": true }
         ],
         "semi": [
             "error",
-            "always"
+            "never",
         ],
         "no-console": "off",
     }

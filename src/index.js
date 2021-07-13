@@ -135,7 +135,7 @@ export default class ZProgress {
         }
 
         const work = () => {
-            window.setTimeout(function () {
+            setTimeout(function () {
                 if (!this.isStarted()) return
                 if (!this[_pause]) this.trickle() // 是否暂停
                 work()
@@ -263,16 +263,6 @@ export default class ZProgress {
         if (n > max) return max
         return n
     }
-}
-
-
-/**
- * 判断目标对象是否为函数
- * @param { Any } fn 目标对象
- * @return { Boolean }
- */
-function isFunction(fn) {
-    return typeof fn === 'function'
 }
 
 /**
